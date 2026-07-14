@@ -18,127 +18,114 @@
 
 ---
 
-### 🔍 SME Feedback from the Break Through Tech Evaluation Team
+## 📋 BTT Internal Evaluation Notes
+*(This section is for BTT staff and CAs only — remove before sharing with students)*
 
-*Challenge Advisor: Please address the following feedback by editing this page. Your AI Studio Coach can help make project adjustments as needed, too. In addition to the grey section above, this section should be removed before sharing the repo with your student team.*
+### Technical Vetting
+| Check | Status | Notes |
+| :--- | :--- | :--- |
+| Python Compatibility | 🟢 | The project uses a Python-centric tech stack, aligning with students' existing skills and resources. |
+| Data Readiness | 🟡 | The dataset is estimated to be between 5 GB and 10 GB. While it is not over the 10GB threshold, the project's success will depend on the complexity and cleanliness of the synthetic data, which may require substantial preprocessing. |
+| Resource Check | 🟢 | All required resources, including software and tools, are accessible via Google Colab, which is user-friendly for students and eliminates infrastructure concerns. |
+
+### Internal Scores
+- **Student Fit Score:** 7/10
+- **Technical Depth Score:** 8/10
+- **Overall Recommendation:** REVISE
+
+### Advisor Feedback Draft
+The project addresses a relevant and timely issue in hospitality management—a strong starting point. To enhance student engagement, consider the following suggestions: 1. Simplify the SHAP integration for better understanding among students and provide additional resources or tutorials. 2. Provide clarity on how to clean and preprocess the synthetic data to avoid mismatched expectations. This would benefit students in managing workload efficiently throughout the semester. Overall, I encourage you to clarify these gaps in your project outline to better empower students. Let's ensure they have a comprehensive learning experience while tackling real-world applications.
 
 ---
 
-# [Project Title]
+# No-Show Fraud Detection: Protecting Hotel Inventory from Loyalty Reservation Abuse
 
-**Company / Org:** [Company / Org Name]  
-**Challenge Advisor:** [Name, Title, Email]  
-**Program:** Break Through Tech AI Studio - Fall 2026
+**Company / Org:** Wyndham Hotels & Resorts  
+**Challenge Advisor:** Danielle Golinski, danielle.golinski@wyndham.com  
+**Program:** Break Through Tech AI Studio - Fall 2026  
 
 ---
 
-## 🏢 About [Company / Org Name]
-
-[2-3 sentences about your company: what you do, your industry, etc. You may also choose to specify your specific department or team.]
+## 🏢 About Wyndham Hotels & Resorts
+Wyndham Hotels & Resorts is a global leader in the hospitality industry, operating a vast portfolio of hotel brands across various price points and geographic regions. The team's objective is to safeguard inventory and maintain the integrity of their loyalty program by identifying and mitigating fraudulent reservation patterns.
 
 ---
 
 ## 🎯 The Challenge
-
 ### Project Summary
-[In 2-3 sentences, describe what you're asking the team to do. Be specific about the type of data, ML techniques, and potential impact.]
-
-> **Example:** "In this project, your team will use customer transaction data and classification algorithms to build a model that predicts which users are likely to churn. This will help our retention team prioritize outreach."
+Students will utilize synthetic loyalty data to build a supervised classification model that identifies fraudulent members who habitually book rooms without the intent to stay to exploit loyalty points. By employing XGBoost and SHAP explainability, the team will develop a system to flag high-risk accounts, effectively protecting hotel inventory and preventing the depletion of loyalty point liability.
 
 ### Success Criteria
-[What does success look like? Describe evaluation metrics (accuracy, F1 score, etc.) or qualitative outcomes that would make this project valuable to your company.]
+A model that catches a meaningful share of fraudulent accounts before redemption at a workable false positive rate; a SHAP-powered dashboard for analyst use; and a final presentation quantifying catch rates, costs of false positives, and deployment requirements.
 
 ### Project Milestones
-
-Use these milestones to guide your work. Your team will create a **GitHub Projects board** to track tasks within each milestone.
-
+Use these milestones to guide your work. Your team will create a GitHub Projects board to track tasks within each milestone.
 | Month | Milestone | Key Activities |
 |-------|-----------|----------------|
-| **September** | [e.g., Data Understanding] | [e.g., Explore dataset, handle missing values, document findings] |
-| **October** | [e.g., Model Development] | [e.g., Train baseline model, experiment with approaches, iterate] |
-| **November** | [e.g., Evaluation & Presentation] | [e.g., Finalize model, prepare presentation, document results] |
+| **September** | Data Exploration & Preprocessing | Conduct exploratory data analysis to identify no-show patterns and establish robust data cleaning pipelines for handling synthetic reservation logs. |
+| **October** | Feature Engineering & Baseline Modeling | Develop core behavioral features from reservation history and train a baseline logistic regression model to benchmark performance against class imbalances. |
+| **November** | Model Optimization & Evaluation | Apply SMOTE to address class imbalance, train an optimized XGBoost classifier, and integrate SHAP TreeExplainer for model interpretability. |
+| **December** | Insights, Deliverables & Presentation | Develop an analyst-facing dashboard for risk monitoring and synthesize findings into a business case and final project presentation. |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
 ---
 
 ## 📊 Dataset
-
-**Name and Source:** [Dataset name and where it's from]  
-**Format:** [e.g., CSV, JSON, images]  
-**Size:** [Approximate size in MB/GB]  
-**Location:** [Link to dataset or instructions for accessing it]
+**Name and Source:** Wyndham Loyalty Reservation Dataset (Internal Synthetic Archive)  
+**Format:** CSV, TSV, or Excel (.xlsx)  
+**Size:** 5gb to 10gb  
+**Location:** Secure internal repository provided by the challenge advisor.  
 
 ### Key Details
-- [Brief description of what's in the data]
-- [Any known limitations or preprocessing needed]
-- [Link to data dictionary or documentation, if available]
+- Reservation and redemption data provided by the organization (potentially synthetic) in CSV/TSV or Excel (.xlsx) formats. Documentation including a data dictionary is available.
+- Features include timestamps of bookings, no-show indicators, point accrual/redemption cycles, and member account tenure. Preprocessing must account for temporal drift and synthetic data noise.
 
 ---
 
 ## 🛠️ Suggested Approach
-
-**ML Problem Type:** [e.g., Classification, Regression, NLP, Computer Vision, LLM/RAG]
-
+**ML Problem Type:** Classification  
 **Recommended Libraries:**
-- [e.g., pandas, scikit-learn, TensorFlow, Hugging Face]
-
-**Evaluation Metrics:**
-- [e.g., Accuracy, Precision/Recall, RMSE, BLEU score]
+- Logistic Regression
+- XGBoost
+- SHAP (TreeExplainer)
+- SMOTE
+- Python
+- Google Colab
+**Evaluation Metrics:** Precision-Recall AUC, False Positive Rate for high-risk flags, and overall classification accuracy on fraudulent member detection.
 
 ---
 
 ## 📚 Resources to Get Started
-
 The following resources will help your team understand the problem space and potential technical approaches for this project:
-
 **Background Reading:**
-- [e.g., Link to an article or blog post about the problem domain]
-- [e.g., Link to an industry report or case study]
-
+- Industry standards on loyalty program fraud detection and hospitality revenue management.
 **Technical Tutorials:**
-- [e.g., Link to a free tutorial on the ML technique(s) involved]
-- [e.g., Link to documentation for a key library or tool]
-
+- Documentation for XGBoost and SHAP explainability frameworks in Python.
 **Code Examples:**
-- [e.g., Link to a relevant GitHub repo]
-- [e.g., Link to a sample implementation or starter code]
-
-**Other:**
-- [Links to any additional resources — e.g., papers, videos, podcasts, etc.]
-
-*Feel free to explore beyond these, and share anything interesting you find with me!*
+- Starter notebooks for supervised classification and imbalanced dataset handling (SMOTE).
 
 ---
 
-## 🤝 How We'll Work Together (v2)
-
-**Official check-ins:** During our biweekly 45-minute AI Studio Lab Section meeting block (2nd and 4th week of every month)
-
- **Other ways to reach out to me with questions:** 
-* [e.g., Your team's channel within Break Through Tech’s Discord space]
-* [e.g., Email; please copy your teammates and AI Studio Coach]
-* [e.g., Request a team check-in on Zoom]
-* [Note: I will aim to respond within 48 hours. Please reach out to your AI Studio Coach with urgent questions.]
-
-> 💡 **Challenge Advisor: Please update the above based on your availability and preference. If you are not able to answer questions or meet with fellows outside of the biweekly Lab Section check-ins, simply write in "N/A (only available during the official check-in times)"**
-
-**Recommended free coding / collaboration tools**
-* […]
-* […]
+## 🤝 How We'll Work Together
+**Check-ins:** During our biweekly 60-min AI Studio Lab Section meeting block (2nd and 4th week of every month)  
+**Communication:** Email and internal messaging channels provided by the company.  
+**Response time:** 48-72 business hours.  
+**Recommended Tools:**
+- **Coding:** Google Colab Free Tier  
+- **Collaboration:** GitHub, Notion  
+- **Virtual Meetings:** Zoom, Google Meet  
 
 ---
 
 ## 🚀 Getting Started
+1. **Review this overview document** and note any questions for our first meeting.
+2. **Begin reviewing the dataset** using the link provided in the Dataset section.
+3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
-1. **Review this overview document** and note any questions for our first meeting
-2. **Begin reviewing the dataset** using the link above
-3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-
-I’m excited to work with you!
+I'm excited to work with you!
 
 ---
 
 ## ❓ Questions?
-
-Please bring any questions to our first meeting during the week of August 24th (Break Through Tech’s Bridge to Studio - Session C). 
+Please bring any questions to our first meeting during the week of August 24th (Break Through Tech's Bridge to Studio - Session B).
