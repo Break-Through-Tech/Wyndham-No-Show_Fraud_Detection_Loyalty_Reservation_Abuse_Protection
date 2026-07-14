@@ -34,7 +34,7 @@
 - **Overall Recommendation:** REVISE
 
 ### Advisor Feedback Draft
-The project addresses a relevant and timely issue in hospitality management—a strong starting point. To enhance student engagement, consider the following suggestions: 1. Simplify the SHAP integration for better understanding among students and provide additional resources or tutorials. 2. Provide clarity on how to clean and preprocess the synthetic data to avoid mismatched expectations. This would benefit students in managing workload efficiently throughout the semester. Overall, I encourage you to clarify these gaps in your project outline to better empower students. Let's ensure they have a comprehensive learning experience while tackling real-world applications.
+The project addresses a relevant and timely issue in hospitality management—a strong starting point. To enhance student engagement, consider the following suggestions: 1. Simplify the SHAP integration for better understanding among students, and maybe provide additional resources or tutorials. 2. Sharing recommended cleaning and preprocessing of the synthetic data to avoid mismatched expectations. This would help students manage their workload more efficiently throughout the semester. Overall, I encourage you to clarify these gaps in your project outline to better empower students. These steps could help ensure a comprehensive learning experience for the Fellows and a successful project outcome for your team.
 
 ---
 
